@@ -1,14 +1,17 @@
-\documentclass[a4wide,10pt,2pages]{article}
+\documentclass[a4paper,10pt,twoside]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 
+\usepackage{a4wide}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
 \title{Audit du Système d'Information de l'association \\ \Huge{Éponyme de EVE}}
 \author{Jean-Christophe Saad-Dupuy, Nancy Botwin, Geoffroy Carrier}
+\date{novembre 2008}
 
 \begin{document}
 
@@ -16,10 +19,7 @@
 
 \tableofcontents
 
-
-Comment répondre aux attentes de la Délégation de Service Public liées à la Pépinière d'association ?
-\input{pepiniere/pepiniere.tex}
-
+\input{introduction.tex}
 \input{organisation/organisation.tex}
 \input{gestion/gestion.tex}
 \input{outils_existants/outils_existants.tex}
