@@ -1,0 +1,9 @@
+*~
+*.backup
+*.aux
+*.pdf
+*.log
+*.toc
+*.lot
+*.lof
+.sconsign.dblite
