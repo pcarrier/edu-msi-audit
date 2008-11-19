@@ -6,4 +6,5 @@
 *.toc
 *.lot
 *.lof
+*.dot2tex.*.tex
 .sconsign.dblite

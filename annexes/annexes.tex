@@ -1,12 +1,24 @@
 \section{Cadre de l'organisation}
 \section{Statuts}
-\section{DÃ©lÃ©gation de Service Public}
+\section{Délégation de Service Public}
 \section{Diagrammes de gestion}
 \subsection{Organigramme}
 \subsection{Diagramme de flux}
 \subsection{Exemples de commandes}
 \section{Illustration des outils}
-\section{ModÃ¨les et exemples de piÃ¨ces}
+\section{Modèles et exemples de pièces}
 \subsection{A}
 \subsection{B}
 
+\begin{dot2tex}[circo,autosize]
+  digraph FinStockBar {
+  node [ shape = "circle" ];
+  B [ label = "Bureau" ];
+  C [ label = "Café" ];
+  F [ label = "Fournisseur" ];
+  C -> B [ label = "1" ];
+  B -> F [ label = "2" ];
+  F -> B [ label = "3" ];
+  B -> F [ label = "4" ];
+}
+\end{dot2tex}
