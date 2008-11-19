@@ -12,20 +12,7 @@
 
 \begin{center}
 \begin{dot2tex}
-  digraph FinStockBar {
-  rankdir = "LR";
-  size = "7";
-  node [ shape = "circle" ];
-  SI -> S [ label = "1" ] ;
-  S -> R [ label = "2" ];
-  R -> F [ label = "3" ];
-  F -> S [ label = "4" ];
-  S -> SI [ label = "5" ];
-  S -> C [ label = "6" ];
-  C -> SI [ label = "7" ];
-  C -> F [ label = "8" ];
-  C -> SI [ label = "9" ];
-}
+\input{annexes/finstockbar.dot}
 \end{dot2tex}
 \end{center}
 
