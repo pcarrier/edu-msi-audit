@@ -163,31 +163,27 @@ digraph AdhesionAsso {
 \end{dot2tex}
 \end{center}
 
-%\begin{enumerate}
-A info SI
-SI -> Pep demande validation
-Pep -> si validation
-si -> asso mail information
-Asso paie -> pep
-pep > SI statut adherente
-SI  -> asso mail information
-Pep -> compta cheque
-com -> si (enreg)
-si -> asso recu
-%\end{enumerate}
-
+\begin{enumerate}
+\item L'association (A) renseigne les informations nécessaire dans le SI ;
+\item Le SI transmet à la Pépinière (P) la demande de validation ;
+\item P accepte la publication des données de l'association dans l'annuaire ;
+\item Le SI envoie un mail à A l'informant de cette décision ;
+\item A transmet par chèque le règlement à P ;
+\item P renseigne dans le SI le statut «~adhérente~» de A ;
+\item SI envoie un mail à A l'informant de cette action ;
+\item P transmet le chèque à la comptabilité (C) ;
+\item C enregistre le paiement dans le SI ;
+\item le SI envoie à A le reçu de ce paiement.
+\end{enumerate}
 
 \subsection{Exemples de commandes}
-\pagebreak
 \section{Illustration des outils}
 \subsection{Gestion des incidents}
 \label{gestion_incidents}
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=12cm]{annexes/images/gestion_des_incidents.png}
+\begin{center}
+	\includegraphics[width=12cm]{annexes/images/gestion_des_incidents.png} \\
 	\caption{Interface de saisie des incidents de l'assistance informatique}
-\end{figure}
-\clearpage
+\end{center}
 \section{Modèles et exemples de pièces}
 \subsection{A}
 
