@@ -135,6 +135,48 @@ digraph FinStockBar {
 \item Le S l'indique au SI.
 \end{enumerate}
 
+
+
+\subsubsection{Adhésion d'une association à la Pépinière}
+
+Si l'association ne souhaite qu'être référencée sur le site de EVE,
+la chaîne s'interrompt à l'étape TODO
+
+\begin{center}
+\begin{dot2tex}
+digraph AdhesionAsso {
+  size = "7";
+  rankdir = "LR";
+  node [ shape = "circle", style = filled, fillcolor=lightgray ];
+  SI [ shape = "octagon" ];
+  A [ shape = "doublecircle" ];
+  A -> SI [ label = "1" ] ;
+  P -> SI [label="2"];
+  SI -> A [label="3"];
+  A -> P [label="4"];
+  P -> SI [label="5"];
+  SI -> A [label="6"];
+  P -> C [label="7"];
+  C -> SI [label="8"];
+  SI -> A [label="9"];
+}
+\include{
+\end{dot2tex}
+\end{center}
+
+%\begin{enumerate}
+A info SI
+Pep -> si validation
+si -> asso mail information
+Asso paie -> pep
+pep > SI statut adherente
+SI  -> asso mail information
+Pep -> compta cheque
+com -> si (enreg)
+si -> asso recu
+%\end{enumerate}
+
+
 \subsection{Exemples de commandes}
 \pagebreak
 \section{Illustration des outils}
