@@ -138,27 +138,25 @@ digraph FinStockBar {
 \end{center}
 \begin{enumerate}
 \item Le SI (caisse du Grand Café) indique au S (serveur) une fin de stock ;
-\item Le S transmet l'information au responsable stocks (R) ;
-\item Le R passe une commande au fournisseur (F) ;
+\item S transmet l'information au responsable stocks (R) ;
+\item R passe une commande au fournisseur (F) ;
 \item F livre le produit, fournit un bon de livraison et une facture au S ;
-\item Le S met à jour le stock dans le SI ;
-\item Le S transmet le bon de livraison et la facture au comptable (C) ;
-\item Le S saisit la facture dans le SI ;
-\item Le S effectue le règlement (8) auprès du F ;
-\item Le S l'indique au SI.
+\item S met à jour le stock dans le SI ;
+\item S transmet le bon de livraison et la facture au comptable (C) ;
+\item S saisit la facture dans le SI ;
+\item S effectue le règlement (8) auprès du F ;
+\item S l'indique au SI.
 \end{enumerate}
 
 \subsubsection{Adhésion d'une association à la Pépinière}
 
 Si l'association ne souhaite qu'être référencée sur le site de EVE,
-la chaîne s'interrompt à l'étape TODO
+la chaîne s'interrompt à l'étape \ref{stop_point}.
 
 \begin{center}
 \begin{dot2tex}
 digraph AdhesionAsso {
   size = "7!"
-  len = "4"
-  Damping = "0.8"
   rankdir = "LR"
   node [ shape = "circle", style = filled, fillcolor=lightgray ];
   A [ shape = "doublecircle" ];
@@ -178,16 +176,62 @@ digraph AdhesionAsso {
 
 \begin{enumerate}
 \item L'association (A) renseigne les informations nécessaire dans le SI ;
-\item Le SI transmet à la Pépinière (P) la demande de validation ;
+\item Le SI transmet à la Pépinière (P) la demande d'adhésion ;
 \item P accepte la publication des données de l'association dans l'annuaire ;
 \item Le SI envoie un mail à A l'informant de cette décision ;
+\label{stop_point}
 \item A transmet par chèque le règlement à P ;
 \item P renseigne dans le SI le statut «~adhérente~» de A ;
-\item SI envoie un mail à A l'informant de cette action ;
+\item Le SI envoie un mail à A l'informant de cette action ;
 \item P transmet le chèque à la comptabilité (C) ;
 \item C enregistre le paiement dans le SI ;
 \item le SI envoie à A le reçu de ce paiement.
 \end{enumerate}
+
+
+
+\subsubsection{Demande de mise à disposition de salle ou matériel}
+
+
+\begin{center}
+\begin{dot2tex}
+digraph AdhesionAsso {
+  size = "7!"
+  rankdir = "LR"
+  node [ shape = "circle", style = filled, fillcolor=lightgray ];
+  AD [ shape = "doublecircle" ];
+  SI [ shape = "octagon" ];
+  C;
+  P;
+
+  P -> SI [ label = "4, (3.a, 3.c, ...)" ];
+  SI -> AD [ label = "(3.a, 3.c, ...)" ];
+  AD-> SI [ label = "1, (3.b, 3.d, ...)" ];
+  SI -> P [ label = "2,(3.b, 3.d, ...)" ];
+  SI -> C[ label = "5" ];
+
+  C -> SI[ label = "6" ];
+  SI -> AD [ label = "7" ];
+}
+\end{dot2tex}
+\end{center}
+
+\begin{enumerate}
+\item L'association (AD) renseigne les informations nécessaire au dossier dans le SI ;
+\item Le SI transmet la demande à la Pépinière (P) ;
+\item Phase de validation du dossier par P : 
+	\begin{enumerate}
+	\item P transmet à AD les modifications à apporter au dossier via le SI;
+	\item AD transmet à P le dossier modifié via le SI;
+	\item ...
+	\end{enumerate}
+\item La Pépinière valide le dossierdans  le SI ; 
+\item Le SI transmet le dossier à la Commission Animation (C) ;
+\item C informe le SI de sa décision ;
+\item Le SI informe AD de la décision de C. En cas de refus, retour en 1 pour AD.
+\end{enumerate}
+
+
 
 \subsection{Exemples de commandes}
 \section{Illustration des outils}
@@ -195,7 +239,7 @@ digraph AdhesionAsso {
 \label{gestion_incidents}
 \begin{center}
 	\includegraphics[width=12cm]{annexes/images/gestion_des_incidents.png} \\
-	\caption{Interface de saisie des incidents de l'assistance informatique}
+	Interface de saisie des incidents de l'assistance informatique
 \end{center}
 \section{Modèles et exemples de pièces}
 \subsection{A}
