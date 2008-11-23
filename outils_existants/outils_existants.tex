@@ -7,11 +7,11 @@
 \subsubsection{Grand Café}
 \subsubsection{Assistance informatique}
 
-L'outil Assistance informatique est utilisé par l'ENE.
+L'outil Assistance informatique est utilisé par l'ENE pour l'activité éponyme.
 
 Il a plusieurs vocations :
 \begin{itemize}
-\item Suivre des assistances en cours, que ce soit par téléphone,
+\item Suivre les assistances en cours, que ce soit par téléphone,
       courriel ou sur place, notamment en cas de changement d'opérateur ;
 \item Remonter des statistiques au système de direction, par exemple les temps
       moyens de traitement, y compris par opérateur, le nombre de traitements,
@@ -25,12 +25,48 @@ Il a plusieurs vocations :
 
 Il s'agit d'une application Web développée en interne quand le service était
 assuré directement par la Direction des Systèmes d'Information de Grenoble,
-Université de l'Innovation, et sur lequel EVE n'a aucun contrôle.
+Université de l'Innovation, et sur l'installation de laquelle EVE n'a et
+n'aura aucun contrôle direct.
 
-Son interface est présentée en annexe \ref{gestion_incidents}.
+Son interface est partiellement présentée en annexe \ref{gestion_incidents}.
+
+Nous préconisons donc à Éponyme de s'assurer de la pérennité de cet outil
+en obtenant les données historiques et en l'installant sur son serveur,
+et de l'intégrer à un SI centralisé selon les règles définies en
+\ref{integration_identites}.
+TODO \label{integration_identites}
 
 \subsubsection{LocaMIPE}
+
+La base de données de LocaMIPE est utilisée par l'ENE pour le suivi des
+locations des postes du parc dédié et leur vente en fin de cycle.
+
+Nous ne nous attarderons pas sur le logiciel y étant actuellement associé,
+puisqu'il s'agit du répandu phpMyAdmin. L'inadaptation totale de ce logiciel
+pose de sérieux problèmes.
+
+Nous préconisons donc le développement d'un logiciel adapté, centralisé selon
+les règles définies en \ref{integration_identites}, dissociant donc les
+utilisateurs de leurs emprunts. Il permettra :
+\begin{itemize}
+\item La génération des contrats et factures (aujourd'hui écrits manuscrits
+      par le client) ;
+\item La génération de statistiques temporelles, notamment sur l'utilisation
+      des services selon les horaires hebdomadaires d'ouvertures et
+      la période de l'année ;
+\item Le suivi des emprunts en retard et des défauts de paiement, de l'état
+      du parc, des dysfonctionnements des machines ;
+\item La communication sur le site de EVE de l'état et des prévisions de
+      stock et la réservation à distance ;
+\item Le retour de satisfaction et les requêtes des clients sur la suite
+      logicielle, les interactions avec le service.
+\end{itemize}
+
+Il disposera de profils adaptés à l'équipe de direction, aux opérateurs et
+aux usagers et prévoiera une grande souplesse des \textit{scenarii} étant
+donnés les imprévus liés aux difficultés des populations de clients.
+
 \subsubsection{Pépinière}
 Assos, matos, salles, demandes, événements
-\subsubsection{API ?}
+\subsubsection{API}
 \subsubsection{Documentation}
