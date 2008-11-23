@@ -1,8 +1,10 @@
 #!/bin/bash
-for i in  $1*.pdf
-do echo "\subsection[scale=0.8]{$i}
+for i in *.pdf
+do
+echo \
+"\subsection{titre}
 \begin{center}
-	\includegraphics[height=20cm]{$i} \\\\
-	$i
+\includegraphics[scale=0.6]{annexes/images/$i} \\\\
+titre
 \end{center}"
-done
+done > all.tex
