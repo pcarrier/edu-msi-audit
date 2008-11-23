@@ -58,7 +58,7 @@ digraph AdhesionAsso {
 \end{center}
 
 \begin{enumerate}
-\item L'association (A) renseigne les informations nécessaire dans le SI ;
+\item L'association (A) renseigne les informations nécessaires dans le SI ;
 \item Le SI transmet à la Pépinière (P) la demande d'adhésion ;
 \item P accepte la publication des données de l'association dans l'annuaire ;
 \item Le SI envoie un mail à A l'informant de cette décision ;
@@ -71,8 +71,6 @@ digraph AdhesionAsso {
 \item le SI envoie à A le reçu de ce paiement.
 \end{enumerate}
 
-
-
 \subsubsection{Demande de mise à disposition de salle ou matériel}
 
 %edge [arrowsize=3.0]
@@ -83,31 +81,26 @@ digraph AdhesionAsso{
 	rankdir = "LR"
 	size = "9!"
 	node [ shape = "circle", style = filled, fillcolor=lightgray ];
-
 	A [ shape = "doublecircle" ];
 	SI [ shape = "octagon" ];
 	Po [ shape = "doublecircle" ];
-
 	A-> SI [ label = "a"] ;
 	SI -> P [ label = "b" ];
 	SI -> Co [ headlabel = "c" ];
-
 	SI -> Po [ label = "d" ];
 	SI -> Ca [ label = "e" ];
-
 	SI -> I [ label = "f" ];
-
 	P-> SI [ label = "g" ];
-
 	SI-> A [ label = "h" ];
-
 	SI-> C [label = "i" ];
-	
 	C-> SI [ label = "j" ];
 	Po -> SI [ label = "k" ];
 }
 \end{dot2tex}
 \end{center}
+
+L'association doit être adhérente. Cependant, elle peut n'adhérer qu'après approbation
+de l'événement par le COMA.
 
 \begin{enumerate}
 \item L'association (A) renseigne les informations nécessaires dans SI [a] ;
@@ -161,6 +154,3 @@ digraph AdhesionAsso{
 
 \end{itemize}
 \end{enumerate}
-
-
-
