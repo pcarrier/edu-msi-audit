@@ -1,0 +1,166 @@
+\subsubsection{Chaîne de fin de stock au Grand Café}
+
+\begin{center}
+\begin{dot2tex}
+digraph FinStockBar {
+  size = "7!"
+  rankdir = "LR"
+  node [ shape = "circle", style = filled, fillcolor=lightgray ];
+  SI [ shape = "octagon" ];
+  F [ shape = "doublecircle" ];
+  SI -> S [ label = "1" ] ;
+  S -> R [ label = "2" ];
+  R -> F [ label = "3" ];
+  F -> S [ label = "4" ];
+  S -> SI [ label = "5" ];
+  S -> C [ label = "6" ];
+  C -> SI [ label = "7,9" ];
+  C -> F [ label = "8" ];
+}
+\end{dot2tex}
+\end{center}
+\begin{enumerate}
+\item Le SI (caisse du Grand Café) indique au S (serveur) une fin de stock ;
+\item S transmet l'information au responsable stocks (R) ;
+\item R passe une commande au fournisseur (F) ;
+\item F livre le produit, fournit un bon de livraison et une facture au S ;
+\item S met à jour le stock dans le SI ;
+\item S transmet le bon de livraison et la facture au comptable (C) ;
+\item S saisit la facture dans le SI ;
+\item S effectue le règlement (8) auprès du F ;
+\item S l'indique au SI.
+\end{enumerate}
+
+\subsubsection{Adhésion d'une association à la Pépinière}
+
+Si l'association ne souhaite qu'être référencée sur le site de EVE,
+la chaîne s'interrompt à l'étape \ref{stop_point}.
+
+\begin{center}
+\begin{dot2tex}
+digraph AdhesionAsso {
+  size = "7!"
+  rankdir = "LR"
+  node [ shape = "circle", style = filled, fillcolor=lightgray ];
+  A [ shape = "doublecircle" ];
+  SI [ shape = "octagon" ];
+  C;
+  P;
+  A -> SI [ label = "1" ];
+  SI -> P [ label = "2" ];
+  P -> SI [ label = "3,6" ];
+  SI -> A [ label = "4,7,10" ];
+  A -> P  [ label = "5" ];
+  P -> C  [ label = "8" ];
+  C -> SI [ label = "9" ];
+}
+\end{dot2tex}
+\end{center}
+
+\begin{enumerate}
+\item L'association (A) renseigne les informations nécessaire dans le SI ;
+\item Le SI transmet à la Pépinière (P) la demande d'adhésion ;
+\item P accepte la publication des données de l'association dans l'annuaire ;
+\item Le SI envoie un mail à A l'informant de cette décision ;
+\label{stop_point}
+\item A transmet par chèque le règlement à P ;
+\item P renseigne dans le SI le statut «~adhérente~» de A ;
+\item Le SI envoie un mail à A l'informant de cette action ;
+\item P transmet le chèque à la comptabilité (C) ;
+\item C enregistre le paiement dans le SI ;
+\item le SI envoie à A le reçu de ce paiement.
+\end{enumerate}
+
+
+
+\subsubsection{Demande de mise à disposition de salle ou matériel}
+
+%edge [arrowsize=3.0]
+
+\begin{center}
+\begin{dot2tex}[circo]
+digraph AdhesionAsso{
+	rankdir = "LR"
+	size = "9!"
+	node [ shape = "circle", style = filled, fillcolor=lightgray ];
+
+	A [ shape = "doublecircle" ];
+	SI [ shape = "octagon" ];
+	Po [ shape = "doublecircle" ];
+
+	A-> SI [ label = "a"] ;
+	SI -> P [ label = "b" ];
+	SI -> Co [ headlabel = "c" ];
+
+	SI -> Po [ label = "d" ];
+	SI -> Ca [ label = "e" ];
+
+	SI -> I [ label = "f" ];
+
+	P-> SI [ label = "g" ];
+
+	SI-> A [ label = "h" ];
+
+	SI-> C [label = "i" ];
+	
+	C-> SI [ label = "j" ];
+	Po -> SI [ label = "k" ];
+}
+\end{dot2tex}
+\end{center}
+
+\begin{enumerate}
+\item L'association (A) renseigne les informations nécessaires dans SI [a] ;
+\item Le SI transmet la demande à la Pépinière (P) [b] ;
+\item Phase de validation du dossier par P, en boucle : 
+	\begin{enumerate}
+	\item P transmet à A les modifications à apporter au dossier via le SI [g,h] ;
+	\item A transmet à P le dossier modifié via le SI [a,b] ;
+	\end{enumerate}
+\item La Pépinière valide le dossier dans le SI [g] ; 
+\item Le SI transmet le dossier à la Commission Animation (C) [i] ;
+\item C informe le SI de sa décision [j] ;
+\item
+\begin{itemize}
+	\item \textbf{En cas d'acceptation :}
+	\begin{enumerate}
+		\item Le SI informe A de la décision de C [h] ;
+		\item \textbf{Si l'événement se déroule le soir} :
+		\begin{enumerate}
+			\item \textbf{Selon les conditions de sécurité (type d'événement, jauge) :}
+			\begin{enumerate}
+				\item C indique au SI le besoin d'une équipe [j] ;
+				\item Le SI le transmet au comptable (Co) [c] ;
+				\item Le SI transmet à Pro One (PO) les horaires [d] ;
+			\end{enumerate}
+			\item Le SI indique au Café (Ca) les horaires [e] ;
+		\end{enumerate}
+		\item \textbf{Si A indique nécessiter un ingénieur son ou lumière} :
+		\begin{enumerate}
+			\item Le SI en informe le ou les ingénieurs (I) [f] ;
+			\item Le SI en informe Co [c] ;
+		\end{enumerate}
+	\end{enumerate}
+	\item \textbf{En cas d'acceptation sous condition :}
+	              le SI informe A de la décision de C [h]. Retour en~1 ;
+	\item \textbf{En cas de refus :} le SI informe A de la décision de C [h] ;
+	\item \textbf{En cas de modification (annulation, réévaluation du public attendu :}
+	\begin{enumerate}
+		\item A indique au SI le changement [a] ;
+		\item SI envoie une alerte à P [b] ;
+		\item \textbf{Si P juge que le besoin d'une équipe de sécurité évolue :}
+		\begin{enumerate}
+			\item P indique au SI le besoin d'une équipe [g] ;
+			\item Le SI le transmet à Co [c] ;
+			\item Le SI le transmet à PO [d] ;
+			\item PO notifie le SI de la possibilité de changement [k] ;
+			\item Le SI le transmet à Co [c] ;
+			\item Le SI le transmet à P [b].
+		\end{enumerate}
+	\end{enumerate}
+
+\end{itemize}
+\end{enumerate}
+
+
+
