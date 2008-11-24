@@ -1,17 +1,19 @@
 \section{Outils existants}
 \subsection{Vue d'ensemble}
+\label{general}
 
 Nous avons constaté des problèmes récurrents et globaux. Ces problèmes sont pour
-la plupart identifié de longue date par l'équipe de direction et le bureau.
+la plupart identifié de longue date par l'équipe de direction et le bureau. Nous
+ne les indiquerons pas pour chaque sous-système.
 
 \begin{enumerate}
-\item La faible utilisation d'outils numériques. Les opérateurs manipulent et archivent
+\item[La faible utilisation d'outils numériques.] Les opérateurs manipulent et archivent
       trop de documents papier.
       L'organisation de leurs archives est généralement insufisamment documentée.
       Nous recommandons de largement numériser les documents papier dans un premier temps,
       de déterminer la pertinence de l'extraction des différentes données qu'ils contiennent,
       notamment à des fins statistiques, afin d'établir des procédures de saisie.
-\item La redondance des informations, notamment sur les usagers, qu'il s'agisse d'individus
+\item[La redondance des informations,] notamment sur les usagers, qu'il s'agisse d'individus
       (bénéficiaires des assistances API, ENE, clients au Grand Café dont salariés et LocaMIPE)
       qui peuvent être adhérents ou d'associations qui peuvent être adhérentes ADAM.
       Nous recommandons d'établir une base de données centralisée, et de faciliter l'identification
@@ -22,21 +24,20 @@ la plupart identifié de longue date par l'équipe de direction et le bureau.
       pour ces publics à la carte d'adhérent.
       De plus, les sous-systèmes doivent s'interfacer. Le comptable doit notamment transférer
       beaucoup d'informations des sous-systèmes de services au sous-système comptable.
-\item Le manque d'ouverture sur l'environnement. De nombreuses informations, pour certaines
+\item[Le manque d'ouverture sur l'environnement.] De nombreuses informations, pour certaines
       connues et diffusées au sein du bâtiment, ne sont pas disponibles sur le site Internet.
-\item Le manque de retour qualité. Si d'expérience, la structure est ouverte aux critiques
+\item[Le manque de retour qualité.] Si d'expérience, la structure est ouverte aux critiques
       et suggestions, il n'existe pas de moyens autres qu'oraux pour les communiquer.
       Chaque service gagnerait à mener des enquêtes en la matière, et le système de gestion
       à disposer d'informations complètes comme synthétiques.
-\item Le manque d'outils d'aide à la décision. Même quand les informations sont correctement
+\item[Le manque d'outils d'aide à la décision.] Même quand les informations sont correctement
       intégrées aux outils numériques, la génération de statistiques est absente ou
       incomplète.
-\item La disparité des systèmes de sauvegarde, leur caractère manuel et/ou insuffisant
+\item[La disparité des systèmes de sauvegarde], leur caractère manuel et/ou insuffisant
       dans de nombreux cas.
       Nous recommandons l'utilisation d'un système centralisé pour simplifier la maintenance,
       la surveillance \textit{via} des commandes d'alerte et la multiplicité de la redondance.
 \end{enumerate}
-
 
 \subsection{Sous-systèmes}
 
@@ -51,12 +52,23 @@ communication bancaire. Cependant, la rédaction bilans comptables annuels sont 
 
 La gestion du personnel est externalisée à une entreprise tierce.
 L'association Éponyme n'a par conséquent aucun outil dédié.
-Les recrutements étant rares et passant pour certains postes par l'ANPE et/ou 
-
 
 \subsubsection{Adhérents et multidiffusion}
 
 Un poste consacré aux adhésions est installé au comptoir du Grand Café.
+L'accès matériel permet uniquement l'utilisation d'un logiciel Web, conçu par un des auteurs.
+Il permet la saisie par l'adhérent de ses coordonnées, et au serveur de confirmer
+le règlement sur place (caisse séparée de l'activité de café) ou lors de l'inscription
+à l'Université (proposé à l'UPMF et à Stendhal).
+
+Après une phase d'identification, le comptable peut accéder à un historique des inscriptions
+par jour et semaine. Nous préconisons qu'il lui soit automatiquement transmis par E-mail
+à la fin de chaque période.
+
+Après une phase d'identification, le responsable du service ENE peut accéder à une liste
+des adhérents sous forme de tableau ou au format CSV. Il l'utilise entre autres pour en
+extraire les courriels qu'il inscrit par la suite sur une liste de multidiffusion (voir \ref{multidiffusion}). Nous préconisons que l'inscription soit automatisée et que ces
+tableaux évoluent dans un outil complet dans le cadre de la centralisation abordée en \ref{general}.
 
 \subsubsection{Grand Café}
 
@@ -115,10 +127,7 @@ n'aura aucun contrôle direct.
 Son interface est partiellement présentée en annexe \ref{gestion_incidents}.
 
 Nous préconisons donc à Éponyme de s'assurer de la pérennité de cet outil
-en obtenant les données historiques et en l'installant sur son serveur,
-et de l'intégrer à un SI centralisé selon les règles définies en
-\ref{integration_identites}.
-TODO \label{integration_identites}
+en obtenant les données historiques et en l'installant sur son serveur.
 
 \subsubsection{LocaMIPE}
 
@@ -129,16 +138,19 @@ Nous ne nous attarderons pas sur le logiciel y étant actuellement associé,
 puisqu'il s'agit du répandu phpMyAdmin. L'inadaptation totale de ce logiciel
 pose de sérieux problèmes.
 
-Nous préconisons donc le développement d'un logiciel adapté, centralisé selon
-les règles définies en \ref{integration_identites}, dissociant donc les
-utilisateurs de leurs emprunts. Il permettra :
+Nous préconisons donc le développement d'un logiciel adapté. À défaut
+de s'intégrer dans un SI global comme développé en \ref{general}, il
+devra au minimum identifier les usagers entre leurs locations et achats
+(entre autres pour connaître le nombre réel d'usagers, le nombre de passages
+par usager).
+
 \begin{itemize}
 \item La génération des contrats et factures (aujourd'hui écrits manuscrits
       par le client) ;
 \item La génération de statistiques temporelles, notamment sur l'utilisation
       des services selon les horaires hebdomadaires d'ouvertures et
       la période de l'année ;
-\item Le suivi des emprunts en retard et des défauts de paiement, de l'état
+\item Le suivi des locations en retard et des défauts de paiement, de l'état
       du parc, des dysfonctionnements des machines ;
 \item La communication sur le site de EVE de l'état et des prévisions de
       stock et la réservation à distance ;
@@ -152,10 +164,52 @@ donnés les imprévus liés aux difficultés des populations de clients.
 
 \subsubsection{Pépinière}
 
-Assos, matos, salles, demandes, événements
+Le SI de la Pépinière est en pleine mutation. L'un des auteurs coordone
+la conception d'un logiciel intégré dans un nouveau site de EVE, dont une version
+est aujourd'hui en phase d'expérimentation, une importante mise à jour
+rétrocompatible en cours de développement (son cahier des charges étant basé
+sur les premiers retours).
+
+Il permet la constitution d'un annuaire des associations du campus, qu'elles
+soient membres ou non d'ADAM. Ces dernières peuvent actualiser leur fiche,
+et ADAM modère toute opération. Cette annuaire fait partie des missions définies
+dans la première comme la deuxième DSP, mais n'a pu être mis en place jusqu'ici
+puisque les solutions envisagées les années précédentes étaient trop coûteuses
+en temps opérateur.
+
+ADAM peut référencer le matériel et les salles disponibles aux associations,
+les associations peuvent consulter les calendriers de leur disponibilité,
+saisir des dossiers d'organisation d'événements en indiquant leurs besoins,
+le COMA remettre ses décisions (voir annexe \ref{demande_coma}).
+
+Les visiteurs peuvent consulter le calendrier des événements.
 
 \subsubsection{API}
 
+Le «~Guide des étudiants étrangers~» est accessible en ligne après saisie par
+l'étudiant de ses coordonnées et vérification de son adresse de courriel (pour
+inscription dans une liste de multidiffusion, voir \ref{multidiffusion}).
+
+Toutes les assistances sont saisies avec des informations (dont la nationalité)
+sur l'étudiant. De nouveau, phpMyAdmin est utilisé.
+
+Nous préconisons donc le développement d'un logiciel adapté. À défaut
+de s'intégrer dans un SI global comme développé en \ref{general}, il
+devra au minimum identifier les usagers entre leurs demandes d'assistance
+(entre autres pour connaître le nombre réel d'usagers, le nombre de passages
+par usager).
+
 \subsection{Multithèque}
 
+La multithèque utilise un Système Intégré de Gestion de Bibliothèque (SIGB) libre, Koha3,
+adapté en interne à la diversité des types de ressources disponibles (voir \ref{multitheque}).
+Ce dernier permet aux opérateurs d'enregistrer les emprunts, notifie les usagers
+par courriel après une semaine d'emprunt, notifie les opérateurs des retards pour permettre l'encaissement de la caution.
+
+Il permet de consulter le catalogue (disponibilité comprise) à distance.
+
+Nous suggérons de proposer la réservation des ressources à distance.
+
 \subsubsection{Documentation}
+
+L'association utilise plusieurs wiki pour sa documentation interne.
