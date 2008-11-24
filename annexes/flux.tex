@@ -27,7 +27,7 @@ digraph FinStockBar {
 \item S met à jour le stock dans le SI ;
 \item S transmet le bon de livraison et la facture au comptable (C) ;
 \item S saisit la facture dans le SI ;
-\item S effectue le règlement (8) auprès du F ;
+\item S effectue le règlement auprès du F ;
 \item S l'indique au SI.
 \end{enumerate}
 
@@ -87,16 +87,16 @@ digraph AdhesionAsso{
 	A [ shape = "doublecircle" ];
 	SI [ shape = "octagon" ];
 	Po [ shape = "doublecircle" ];
-	A-> SI [ label = "a"] ;
+	A -> SI [ label = "a"] ;
 	SI -> P [ label = "b" ];
 	SI -> Co [ headlabel = "c" ];
 	SI -> Po [ label = "d" ];
 	SI -> Ca [ label = "e" ];
 	SI -> I [ label = "f" ];
-	P-> SI [ label = "g" ];
-	SI-> A [ label = "h" ];
-	SI-> C [label = "i" ];
-	C-> SI [ label = "j" ];
+	P -> SI [ label = "g" ];
+	SI -> A [ label = "h" ];
+	SI -> C [label = "i" ];
+	C -> SI [ label = "j" ];
 	Po -> SI [ label = "k" ];
 }
 \end{dot2tex}
